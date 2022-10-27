@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import HouseComp from "./HouseComp"
 
 let headers = new Headers({ Accept: "application/json" });
 const url = "https://wizard-world-api.herokuapp.com/Houses/";
@@ -28,13 +29,13 @@ function Houses() {
       <ul>{
         house.map((house, index) => {
           return (
-            <li key={index}>
-              {house.name},
-              {house.founder},
-              {house.houseColours},
-              {house.ghost},
-              {house.traits.map((trait) => trait.name)}
-            </li>
+            <HouseComp key={index}
+             name = {house.name}
+              founder = {house.founder}
+             houseColours =  {house.houseColours}
+             ghost = {house.ghost}
+             traits = {house.traits.map((trait) => trait.name)}
+           />
           )
         })
       
