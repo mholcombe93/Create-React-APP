@@ -13,17 +13,7 @@ function Houses() {
       const response = await fetch(url, { method: "GET", headers: headers });
       const house = await response.json();
       console.log(house);
-      houseArr = house.map((house) => {
-        return {
-          name: house.name,
-          founder: house.founder,
-          colors: house.houseColours,
-          founder: house.founder,
-          ghost: house.ghost,
-          traits: house.traits.map((trait) => trait.name),
-        };
-      });
-      console.log(houseArr);
+      setHouse(house);
     } catch (error) {
       console.log("error", error);
     }
@@ -31,10 +21,24 @@ function Houses() {
 
   return (
     <div>
-      <div className="Text">{house}</div>
+      <div className="Text"></div>
       <button className="Button" onClick={handleClick}>
         Here is a House
       </button>
+      <ul>{
+        house.map((house, index) => {
+          return (
+            <li key={index}>
+              {house.name},
+              {house.founder},
+              {house.houseColours},
+              {house.ghost},
+              {house.traits.map((trait) => trait.name)}
+            </li>
+          )
+        })
+      
+      }</ul>
     </div>
   );
 }
