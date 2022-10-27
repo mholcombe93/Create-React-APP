@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div>
-      <h1> Have a joke </h1>
+      <h1> Harry Potter Houses API </h1>
       <Houses/>
     </div>
   );

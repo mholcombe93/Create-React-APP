@@ -13,9 +13,9 @@ function HouseComp(props) {
         <p>{ghost}</p>
         <ul>
         { traits.map((trait) => {
-       
           return <Trait trait={trait} /> 
-         })}
+        })}
+          
         </ul>
       </li>
   </ul>
