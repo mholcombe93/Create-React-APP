@@ -29,9 +29,9 @@ function Houses() {
   return (
     <div>
       <img src ="https://m.media-amazon.com/images/I/71qheAe+f6L._AC_SX679_.jpg" className="Gryf_Butt" onClick={() => setCounter(0)}/>
-      <button className="Rav_Butt" onClick={() => setCounter(1)}> Rav </button>
-      <button className="Huff_Butt" onClick={() => setCounter(2)}> Huff </button>
-      <button className="Sly_Butt" onClick={() => setCounter(3)}> Sly </button>
+      <img src="https://m.media-amazon.com/images/I/61iys32RuAL._AC_SX679_.jpg" className="Rav_Butt" onClick={() => setCounter(1)}/> 
+      <img src= "https://img.fruugo.com/product/0/50/46790500_max.jpg" className="Huff_Butt" onClick={() => setCounter(2)}/> 
+      <img src="https://m.media-amazon.com/images/I/71jTE5obH-L._AC_SX679_.jpg" className="Sly_Butt" onClick={() => setCounter(3)}/>
      
       <div className="Text"></div>
       { house.length > 0 &&
@@ -43,7 +43,7 @@ function Houses() {
           traits={house[counter].traits.map((trait) => trait.name)}
         />
       }
-     
+  
       <Modal onClose={() => setShow(false)} show={show} house={house} />
 
        <button onClick ={() => setShow(true)}> Show Modal</button>
