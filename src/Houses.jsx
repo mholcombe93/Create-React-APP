@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import HouseComp from "./HouseComp.jsx"
-import Trait from "./Trait"
 import Modal from './Modal.jsx'
 import App from "./App.css"
+// import HouseComp from "./HouseComp.jsx"
+// import Trait from "./Trait"
 
 let headers = new Headers({ Accept: "application/json" });
 const url = "https://wizard-world-api.herokuapp.com/Houses/";
@@ -13,36 +13,35 @@ function Houses() {
   const [counter, setCounter] = useState(0)
   const [showModal, setShowModal] = useState(false)  
 
-  
+  //--------------------------------- Fetch --------------------------------------
   const fetchHouses = async () => {
     try {
       const response = await fetch(url, { method: "GET", headers: headers });
       const house = await response.json();
-      // console.log(house);
       setHouse(house);
     } catch (error) {
       console.log("error", error);
     }
   };
   
-  useEffect(() => {fetchHouses()}, [])
+  useEffect(() => {fetchHouses()}, []) // makes componeents render AFTER api is called
 
 
   return (
     <div>
-      <img src= "https://m.media-amazon.com/images/I/71qheAe+f6L._AC_SX679_.jpg" className="Gryf_Butt" onClick={() => {
+      <img src = "https://static.wikia.nocookie.net/harrypotter/images/b/b1/Gryffindor_ClearBG.png/" className="Gryf_Butt" onClick={() => {
           setCounter(0)
           setShowModal(true)
           }}/> 
-      <img src= "https://m.media-amazon.com/images/I/61iys32RuAL._AC_SX679_.jpg" className="Rav_Butt" onClick={() => {
+      <img src = "https://static.wikia.nocookie.net/harrypotter/images/7/71/Ravenclaw_ClearBG.png/" className="Rav_Butt" onClick={() => {
           setCounter(1)
           setShowModal(true)
           }}/>
-      <img src = "https://img.fruugo.com/product/0/50/46790500_max.jpg" className="Huff_Butt" onClick={() => {
+      <img src = "https://static.wikia.nocookie.net/harrypotter/images/0/06/Hufflepuff_ClearBG.png/" className="Huff_Butt" onClick={() => {
           setCounter(2)
           setShowModal(true)
           }}/>
-      <img src = "https://m.media-amazon.com/images/I/71jTE5obH-L._AC_SX679_.jpg" className="Sly_Butt" onClick={() => {
+      <img src = "https://static.wikia.nocookie.net/harrypotter/images/0/00/Slytherin_ClearBG.png/" className="Sly_Butt" onClick={() => {
           setCounter(3)
           setShowModal(true)
           }}/> 
@@ -61,21 +60,3 @@ function Houses() {
 }
 
 export default Houses;
-
-// import  axios  from "axios";
-
-// function App(){
-//   const [house, setHouse] = useState("")
-//   const getHouse = () => {
-//     axios.get("https://wizard-world-api.herokuapp.com/Houses/")
-//       .then((response) => {
-//         console.log(response);
-//
-//       })
-//   }
-//   return <div>
-//     <button onClick={getHouse}> Get House </button>
-//     {house}
-//   </div>
-
-// }

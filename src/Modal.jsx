@@ -12,10 +12,10 @@ function Modal(props) {
           <ul>
             <li>
               <h1> {name} </h1>
-              <p>{founder}</p>
-              <p>{houseColours}</p>
-              <p>{ghost}</p>
-              <ul>
+              <p>Founder: {founder}</p>
+              <p>House Colors: {houseColours}</p>
+              <p>House Ghost: {ghost}</p>
+              <ul className = "Trait_List"> Traits:
                 {traits.map((trait) => {
                   return <Trait trait={trait} />;
                 })}
@@ -23,7 +23,7 @@ function Modal(props) {
             </li>
           </ul>
           <div className="modal-footer">
-            <button onClick={props.setShowModal}>Close</button>
+            <button className="Return_Button" onClick={props.setShowModal}>Return</button>
           </div>
         </div>
       </div>
