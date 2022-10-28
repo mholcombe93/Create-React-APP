@@ -6,7 +6,4 @@ function Trait(props) {
     <li> {props.trait} </li>
   )
 }
-
-
-
 export default Trait

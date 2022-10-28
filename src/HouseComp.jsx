@@ -1,6 +1,6 @@
 //FIRE!!
-import Trait from "./Trait"
-import Modal from "./Modal"
+import Trait from "./Trait.jsx"
+import Modal from "./Modal.jsx"
 
 function HouseComp(props) {
   let { name, founder, houseColours, ghost, traits } = props
