@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import HouseComp from "./HouseComp.jsx"
 import Trait from "./Trait"
+import Modal from './Modal'
 
 let headers = new Headers({ Accept: "application/json" });
 const url = "https://wizard-world-api.herokuapp.com/Houses/";
@@ -9,6 +10,7 @@ const url = "https://wizard-world-api.herokuapp.com/Houses/";
 function Houses() {
   const [house, setHouse] = useState([]);
   const [counter, setCounter] = useState(0)
+  const [show, setShow] =useState(true)
 
   
   const fetchHouses = async () => {
@@ -22,12 +24,11 @@ function Houses() {
     }
   };
   
-  useEffect(() => {fetchHouses()}, [])
-
+  useEffect(() => {fetchHouses()}, []) // only do fetch when the component mounts, prevent infin loops
 
   return (
     <div>
-      <button className="Gryf_Butt" onClick={() => setCounter(0)}> Gryff </button>
+      <img src ="https://m.media-amazon.com/images/I/71qheAe+f6L._AC_SX679_.jpg" className="Gryf_Butt" onClick={() => setCounter(0)}/>
       <button className="Rav_Butt" onClick={() => setCounter(1)}> Rav </button>
       <button className="Huff_Butt" onClick={() => setCounter(2)}> Huff </button>
       <button className="Sly_Butt" onClick={() => setCounter(3)}> Sly </button>
@@ -42,7 +43,10 @@ function Houses() {
           traits={house[counter].traits.map((trait) => trait.name)}
         />
       }
-           {/* <button onClick={decrementTen}disabled={count ===0}>Gryf</button> */}
+     
+      <Modal onClose={() => setShow(false)} show={show} house={house} />
+
+       <button onClick ={() => setShow(true)}> Show Modal</button>
     </div>
   );
 }

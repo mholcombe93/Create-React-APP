@@ -1,5 +1,6 @@
 //FIRE!!
 import Trait from "./Trait"
+import Modal from "./Modal"
 
 function HouseComp(props) {
   let { name, founder, houseColours, ghost, traits } = props
